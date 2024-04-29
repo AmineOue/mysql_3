@@ -1,0 +1,40 @@
+1)
+select * from customers
+2)
+select product_name, category from producs
+where price > 5000 AND Price < 10000
+
+3)
+
+select * from products
+order by price desc
+
+4 )
+ SELECT
+    COUNT(*) AS total_orders,
+    AVG(amount) AS average_amount,
+    MAX(amount) AS highest_total_amount,
+    MIN(amount) AS lowest_total_amount
+FROM
+    orders;
+
+5)
+SELECT customer_id
+FROM orders
+GROUP BY customer_id
+HAVING COUNT(*) > 2;
+
+7)
+SELECT
+    p.product_name,
+    c.customer_name,
+    o.order_date
+FROM
+    orders o
+JOIN
+    products p ON o.product_id = p.product_id
+JOIN
+    customers c ON o.customer_id = c.customer_id;
+8)
+SELECT * from orders where  orderdate >= DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH)
+    AND order_date < DATE_SUB(CURRENT_DATE(), INTERVAL 2 MONTH);
